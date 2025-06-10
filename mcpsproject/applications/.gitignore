@@ -1,0 +1,6 @@
+# Carpeta de entornos virtuales
+venv/
+venvw/
+
+# archivos de caché
+__pycache__/
