@@ -15,7 +15,7 @@ class MCPCategory(models.Model):
     slug = models.SlugField(unique=True)
     icon = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)
-    order = models.IntegrerField(default=0)
+    order = models.IntegerField(default=0)
     
 class MCPProvider(models.Model):
     """Registro de toso lso MCPs dispobibles.
@@ -43,14 +43,14 @@ class MCPProvider(models.Model):
     slug = models.SlugField(unique=True)
     category = models.ForeignKey(MCPCategory, on_delete=models.CASCADE)
     description = models.TextField(blank=True, null=True)
-    icon_url = models.URLfield(blank=True)
+    icon_url = models.URLField(blank=True)
     documentation_url = models.URLField(blank=True)
 
     # Configuración de la integración 
     integration_type = models.CharField(max_length=50, choices=INTEGRATION_TYPES)
     plugin_class = models.CharField(max_length=200)
     required_scopes = models.JSONField(default=list)
-    webhook_events = models.JSONField(defeult=list)
+    webhook_events = models.JSONField(default=list)
 
     # Metadatos de la integración
     created_at = models.DateTimeField(auto_now_add=True)
